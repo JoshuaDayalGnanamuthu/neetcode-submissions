@@ -1,0 +1,23 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # Time Complexity O(m * N), Space Complexity O(m)
+        from collections import defaultdict
+
+        group_anagrams = defaultdict(list)
+
+        chars = []
+        for string in strs:
+            chars = [0] * 26
+            for char in string:
+                chars[ord(char) - 97] += 1
+            group_anagrams[tuple(chars)].append(string)
+        
+        return [values for _, values in group_anagrams.items()]
+            
+
+
+
+
+
+
+        
